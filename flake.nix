@@ -16,12 +16,8 @@
 						name = pkgName;
 						inherit system;
 						src = ./.;
-						installPhase = pkgs.writers.writeFish "install_fish-nixenv" ''
-							for dir in functions completions
-								for source in ${./.}/{$dir}/**.fish
-									install -D --mode=644 -- {$source} "$out"/share/fish/vendor_{$dir}.d/(string split --fields=2 --max=1 -- {$dir}/ (string split --fields=2 --max=1 -- ${./.} {$source}) | string replace --all -- / _)
-								end
-							end
+						installPhase = ''
+								install -D --mode=644 -- "$src"/conf.d/_load-nixpkg-scripts.fish "$out"/share/fish/vendor_conf.d/_load-nixpkg-scripts.fish
 						'';
 					};
 				};
