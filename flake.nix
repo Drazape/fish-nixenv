@@ -1,5 +1,5 @@
 {
-	description = "Allow making direnv devshells for Fish projects";
+	description = "Allow making direnv devShells for Fish projects";
 
 	inputs = {
 		flake-parts = { type="github"; owner="hercules-ci"; repo="flake-parts"; };
