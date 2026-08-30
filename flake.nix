@@ -17,14 +17,16 @@
 						inherit system;
 						src = ./.;
 						installPhase = pkgs.writers.writeFish "install_fish-nixenv" ''
-							function install-components --description='Install a component of the program' --inherit-variable=src
-							    set --local -- source_dir {$argv[1]}
-							    set --local -- vendor_dir {$argv[2]}
-							    for source in "$src"{$source_dir}/**.fish
-							        set --local -- output_path {$source} # Same output path in case of no root directory
-							        set --query --local -- src && set --local -- output_path (string split --fields=2 --max=1 -- "$src" {$source}) # Remove root directory from the output path
-							        install -D --mode=644 -- {$source} "$out"/"$remote"share/fish/vendor_{$vendor_dir}.d/(string split --fields=2 --max=1 -- {$source_dir} {$output_path} | string replace --all -- / _ | string replace -- {,_}load-nixpkg-script_)
-							    end
+							function install-components --description='Install a component of the program'
+								set --local -- source_dir ${./.}/{$argv[1]}
+								set --local -- vendor_dir {$argv[2]}
+								for source in {$source_dir}/**.fish
+									install -D --mode=644 -- {$source} {$out}/share/fish/vendor_{$vendor_dir}.d/(
+										string split --fields=2 --max=1 -- {$source_dir}/ {$source} |
+										string replace --all -- / _ |
+										string replace -- {,_}load-nixpkg-scripts_
+									)
+								end
 							end
 
 							install-components functions{,}
