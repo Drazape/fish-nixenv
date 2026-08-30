@@ -1,0 +1,9 @@
+function _load-nixpkg-scripts_remove --description='Erase a Fish Nixpkg from an environment'
+    set -- fish_function_path {$_old_function_path}
+    set --erase --global -- _old_function_path
+
+    set -- fish_complete_path {$_old_complete_path}
+    set --erase --global -- _old_complete_path
+
+    set --erase --global -- _nixpkg_fish_loaded
+end
