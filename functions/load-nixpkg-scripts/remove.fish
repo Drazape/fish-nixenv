@@ -6,4 +6,5 @@ function _load-nixpkg-scripts_remove --description='Erase a Fish Nixpkg from an 
     set --erase --global -- _old_complete_path
 
     set --erase --global -- _nixpkg_fish_loaded
+    emit -- direnv-hook-remove
 end
