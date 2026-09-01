@@ -8,6 +8,4 @@ function _load-nixpkg-scripts_add --description='Load a Fish Nixpkg into an envi
 
     set --global -- _old_complete_path {$fish_complete_path}
     set --prepend -- fish_complete_path {$FISH_NIXPKG}/share/fish/vendor_completions.d
-
-    set --global -- _nixpkg_fish_loaded
 end

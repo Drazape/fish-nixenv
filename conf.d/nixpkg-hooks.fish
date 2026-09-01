@@ -1,9 +1,7 @@
-function _run-nixpkg-hooks --description='Automatically manage a Nix pkg environment' --on-variable=FISH_{NIXPKG,DIRENV_HOOKS}
-    if set --query --export --global -- FISH_DIRENV_HOOKS || set --query --export --global -- FISH_NIXPKG
-        set --query --export --global -- FISH_DIRENV_HOOKS && source -- {$FISH_DIRENV_HOOKS}
-        set --query --global -- _nixpkg_fish_loaded && _load-nixpkg-scripts_remove
-        _load-nixpkg-scripts_add
+function _run-direnv-hooks --description='Automatically manage direnv hooks' --on-variable=FISH_DIRENV_HOOKS
+    if set --query --export --global -- FISH_DIRENV_HOOKS
+        source -- {$FISH_DIRENV_HOOKS}
     else
-        _load-nixpkg-scripts_remove
+        emit -- direnv-hook-remove
     end
 end
