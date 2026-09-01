@@ -1,11 +1,9 @@
 Create Nix developments environments for Fish projects compatible with Direnv
 
 # The automation included
-One can create a Nix development environment for Fish plugins by executing Fish with `--init-command`.
-The flag can be used to provide a script that sets the script lookup paths to ones from the Nix package.
-Now, once we are done, we can finally use `nix develop` each time in the directory.
+Though you can create Fish devshells without direnv (or fish-nixenv) by working around `shellHooks` and executing `fish` with `--init-command`. Then runnning `nix develop` each time we enter the directory.
 
-While this approach works, it particularly leaves a few issues unaddressed—all the issues solved by [Direnv][direnv]:
+While this approach works, it particularly leaves a few inconveniences unaddressed—the conveniences provided by [Direnv][direnv], that are useless for Fish projects without fish-nixenv:
 1. **Manual**: We need to manually run `nix develop` each time we enter the repository
 2. **Environment Loss**: Any modifications (manual `source`s, functions, variables, abbreviations, completions, bindings, Fish plugin data for the session, …) we added to the previous session are lost
 3. **Overhead**: Your whole interactive shell would have to re-initialized: reading shell initialization scripts, sourcing lookup functions, Fish plugins
@@ -16,11 +14,12 @@ While this approach works, it particularly leaves a few issues unaddressed—all
 
 # [Direnv][direnv] compatibility
 If these issue are already solved by [Direnv][direnv], why do we need this project?  
-For Fish projects, we need to make the included functions, completions, and shellInit scripts available to the current shell session.
-(to allow us to use the project version in the current directory.)  
+For Fish projects, we need to make the included functions, completions, and shellInit scripts available to the current shell session, allowing us to use the plugin version in the current directory—the most common, thus abstracted use case (though abritrary hooks can be defined to do much more).
 This is not possible with `direnv` alone, as it only sets environment variables, runs the `shellHooks` in a separate Bash shell, and does not provide a way to modify the internal Fish environment.
 
 With fish-nixenv, we can use `direnv` to automatically load the Nix development environment for Fish projects, while also ensuring that all Fish functions and completions are indexable, and shell initialization scripts sourced, by the current Fish session.
+
+# Installation
 
 # Usage
 Once you have setted up direnv with to use Nix, in your shell definition, simply set the environment variable `FISH_NIXPKG` to the the path to your Fish plugin's package.
