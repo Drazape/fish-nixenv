@@ -21,11 +21,12 @@
 								set --local -- source_dir ${./.}/{$argv[1]}
 								set --local -- vendor_dir {$argv[2]}
 								for source in {$source_dir}/**.fish
-									install -D --mode=644 -- {$source} {$out}/share/fish/vendor_{$vendor_dir}.d/(
+									set --local -- filename (
 										string split --fields=2 --max=1 -- {$source_dir}/ {$source} |
-										string replace --all -- / _ |
-										string replace -- {,_}load-nixpkg-scripts_
+										string replace --all -- / _
 									)
+									test {$vendor_dir} = functions && set --local -- filename _{$filename}
+									install -D --mode=644 -- {$source} {$out}/share/fish/vendor_{$vendor_dir}.d/{$filename}
 								end
 							end
 

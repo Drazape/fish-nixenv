@@ -5,7 +5,7 @@ description: Generic information on hooks, their implementation, and how they ar
 ---
 
 # Hooks
-Hooks are Fish scripts that that may be executed with a trigger: entering, exiting, and changing a Fish plugin repository.
+Hooks are Fish functions that that may be executed with a trigger: entering, exiting, and changing a Fish plugin repository.
 
 ## Defining data for the shell
 The information needed by these hooks is transfered to the shell via environment variables.  
@@ -72,5 +72,3 @@ To define a hook, make your development shell derivation include the environment
 These hooks are triggered when the environment variables defined in the development shell derivation are modified by Direnv.  
 The trigger is made possible by the `--on-variable` flag available to loaded Fish functions (hence the functions reside in `conf.d/`).  
 Each hook uses the `--on-variable` flag to listen on the environment variable it is interested in. When the environment variable is modified, the hook is executed.
-
-Besides environment varibales, some hooks may also accept more information later via global environment variables.

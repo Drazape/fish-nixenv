@@ -1,4 +1,4 @@
-function _load-nixpkg-scripts_add --description='Load a Fish Nixpkg into an environment'
+function _load-nixpkg_add --description='Load a Fish Nixpkg into an environment'
     for init_script in {$FISH_NIXPKG}/share/fish/vendor_conf.d/*
         source -- {$init_script} # source only accepts a single path
     end
