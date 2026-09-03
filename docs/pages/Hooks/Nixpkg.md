@@ -17,6 +17,7 @@ Path to a built Nixpkg of the Fish plugin you want to load in your environment.
     This Fish plugin package is one that would work when a user installs it in a Nix environment.
 
 The hook autoloads the following components the package may have:
+
 | component | path | load method | unloads |
 | :-------: | :--: | :---------: | :-----: |
 | shell-initialization scripts | `share/fish/vendor_conf.d/` | recursive `source` | ❌ |
@@ -39,6 +40,6 @@ Providing it with the package path is fairly straightforward in a Nix flake; you
 1. See the [Fish plugin flake template](./index.md#defining-data-for-the-shell){data-preview} for the complete format on defining a Fish plugin Nixpkg in a flake - and use it for a fish-nixenv development shell.
 
 !!! note "*flake-parts* `self'` parameter"
-This example uses [flake-parts](https://flake.parts/ "flake-parts provides the options that represent standard flake attributes and establishes a way of working with `system`")'s `self'` parameter to make it easier. You can apply identically to any other framework (or raw flake)
+    This example uses [flake-parts](https://flake.parts/ "flake-parts provides the options that represent standard flake attributes and establishes a way of working with `system`")'s `self'` parameter to make it easier. You can apply identically to any other framework (or raw flake)
 
-Once this trivial setup is complete, the hook will automagically hotload the whole Fish plugin that was built.
+    Once this trivial setup is complete, the hook will automagically hotload the whole Fish plugin that was built.
