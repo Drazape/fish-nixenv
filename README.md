@@ -1,5 +1,9 @@
 Create Nix developments environments for Fish projects compatible with Direnv
 
+> [!TIP]
+> ### Detailed [documentation](https://drazape.github.io/fish-nixenv/ "GitHub Pages: Zensical documentation")
+> Everything below (and more: usage, implementation, etc) is covered extensively in the main documentation.
+
 # The automation included
 Though you can create Fish devshells without direnv (or fish-nixenv) by working around `shellHooks` and executing `fish` with `--init-command`. Then runnning `nix develop` each time we enter the directory.
 
@@ -20,27 +24,30 @@ This is not possible with `direnv` alone, as it only sets environment variables,
 With fish-nixenv, we can use `direnv` to automatically load the Nix development environment for Fish projects, while also ensuring that all Fish functions and completions are indexable, and shell initialization scripts sourced, by the current Fish session.
 
 # Installation
+You can install the `default` package of this flake using Nix on all Linux distributions alike.
 
-# Usage
-Once you have setted up direnv with to use Nix, in your shell definition, simply set the environment variable `FISH_NIXPKG` to the the path to your Fish plugin's package.
+## NixOS
+1. Add the input to your `flake.nix`
 ```nix
-{
-  …
-
-	outputs = inputs@{ flake-parts, ... }:
+inputs = {
 	…
-				packages = {
-					default = pkgs.stdenvNoCC.mkDerivation {
-						src = ./.;
-						…
-					};
-				};
-				devShells.default = pkgs.mkShellNoCC { FISH_NIXPKG = self'.packages.default; }; # set the environment variable `FISH_NIXPKG` to the path of the Fish plugin's package
-			};
-		};
-}
+	chromaleon = {
+		type="github"; owner="drazape"; repo="ChromaLeon-flake";
+		inputs.nixpkgs.follows = "nixpkgs"; # optional
+	};
+	…
+};
+…
 ```
-For users who'd have installed this direnv extension can now use your Fish project directly in the current shell session, without having to run `nix develop` each time they enter the directory.
+
+2. Simply install the `default` package in your system environment from the added input in a module.
+```nix
+environment.systemPackages = [
+	…
+	inputs.chromaleon.packages.${pkgs.stdenvNoCC.hostPlatform.system}.default
+	…
+];
+```
 
 
 [direnv]: https://direnv.net "direnv is an extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory."
