@@ -5,10 +5,10 @@ description: Generic information on hooks, their implementation, and how they ar
 ---
 
 # Hooks
-Hooks are Fish functions that that may be executed with a trigger: entering, exiting, and changing a Fish plugin repository.
+Hooks are Fish functions that that may be executed with a trigger (entering, exiting, and changing a Fish plugin repository.)
 
 ## Defining data for the shell
-The information needed by these hooks is transfered to the shell via environment variables.  
+The information needed by these hooks is transfered to the shell with environment variables.  
 Each hook asks only for a single environment variable. The environment variable might contain different sort of data depending on the hook the variable is accepted by.
 
 To define a hook, make your development shell derivation include the environment variable wanted by the hook, and set it to the value you want to pass to the hook. The hook will then be able to read the value of the environment variable and use it as needed.
@@ -60,12 +60,12 @@ To define a hook, make your development shell derivation include the environment
 1.  The list of systems the Fish plugin package supports.  
     **Example**: `[ "x86_64-linux", "aarch64-linux", "x86_64-darwin", "aarch64-darwin" ]`
 2. The name of the Fish plugin package package
-3.  Add different phases in order to execute prepare the package.  
-    **Example Phases**: `buildPhase`, `installPhase`, etc
+3.  Add different phases in order to prepare the package.  
+    **Example Phases** include: `buildPhase`, `installPhase`
 4.  Make dependency Fish plugins available to your Fish program
 5.  Other unrelated configuration for the development environment
 6.  Definitions for environment variables as asked for by the Fish shell hooks
-7.  For some niche case, you might want to define a dynamic hook that isn't possible with Nix alone.  
+7.  For some niche case, you might want to define a dynamic hook that Nix alone is incapable of.  
     In that case, you can instead export the variable using the Bash shell `shellHooks`
 
 ## Implementation

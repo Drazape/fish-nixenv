@@ -42,4 +42,4 @@ Providing it with the package path is fairly straightforward in a Nix flake; you
 !!! note "*flake-parts* `self'` parameter"
     This example uses [flake-parts](https://flake.parts/ "flake-parts provides the options that represent standard flake attributes and establishes a way of working with `system`")'s `self'` parameter to make it easier. You can apply identically to any other framework (or raw flake)
 
-    Once this trivial setup is complete, the hook will automagically hotload the whole Fish plugin that was built.
+    After this trivial setup is complete, the hook will automagically hotload the whole Fish plugin that was built.

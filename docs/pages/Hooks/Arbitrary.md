@@ -27,14 +27,14 @@ The value needs to be a file path to the Fish script containing the hook; it doe
 ### External file path
 Simply specify the value to the path of the expected Fish script in the current repository using the [path file type of Nix](https://nix.dev/manual/nix/2.35/language/types.html#type-path "An immutable, finite-length sequence of bytes starting with `/`, representing a POSIX-style, canonical file system path")
 
-### Written via Nix
+### Written in Nix
 You can also define the Fish script path by writing the file in-place with the Nix function [`builtins.toFile`](https://nix.dev/manual/nix/2.34/language/builtins#builtins-toFile "Store a string in a file in the Nix store - and return its path").
 
 ## Usage
 The following sections show how to use the hook according to your usecase.  
 Each use only modifies how the Fish script is written.
 ### Without Abstraction
-The abstractions the hook provides are opt-in. You can simply ignore them if they don't meet your usecase.
+The abstractions the hook provides are opt-in. You can simply ignore them in case they don't meet your usecase.
 
 In this case, the hook is simply a Fish script that is sourced when we enter a directory. You can do whatever you want in this script.
 
@@ -43,7 +43,7 @@ It is nothing more than a shellInit script that you use, without any additional 
 
 This is best suited for:
 
-- changes that should, for some reason, last forever—throughout the session.
+- changes that are expected to, for some reason, last forever—throughout the session.
 - changes that permanently modify the system itself.
 - and the only practical one, changes that only need to be triggered when entering the directory.
 
@@ -54,11 +54,11 @@ These are conveniences the hook provides - that enable you to set and check glob
 Mostly the same as the “[Without Abstraction](#without-abstraction)” case, but you need to do some setup for also triggering on Exits.  
 
 When leaving the Fish project's directory, The hook triggers a function defined while sourcing the script on *Enter*.  
-The source script is to set a global variable (according to the type of exit) to the function name that should be called.
+The source script is to set a global variable (according to the type of exit) to the function name that is to be called.
 
 #### Exit
-Once the setup is complete with the Enter script, next, you can define the function that will be called on exit.  
-Edit the source Fish script such that it sets the global variable `_fish_plugin_remover` to the name of the function that should be called on exit.
+After the setup is complete with the Enter script, you can define the function that will be called on exit.  
+Edit the source Fish script such that it sets the global variable `_fish_plugin_remover` to the name of the function that is to be called on exit.
 
 The function is simply a raw Fish script that is executed when exiting the Fish plugin's repository.
 ```fish
