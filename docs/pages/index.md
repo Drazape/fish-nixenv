@@ -8,7 +8,7 @@ description: Home Page
 Create Nix developments environments for Fish projects compatible with Direnv
 
 ## Description
-*fish-nixenv* is an extenion of [direnv][direnv] that adds support for Fish shell hooks, and standardizes some universal hooks that work directly with Nix packages.
+*fish-nixenv* is an extension of [direnv][direnv] that adds support for Fish shell hooks, and standardizes some universal hooks that work directly with Nix packages.
 
 ## Scope
 To do it's job, this Fish plugin utilizes the environment variables set and unset by [direnv][direnv], as defined by the development shells of a flake.  
