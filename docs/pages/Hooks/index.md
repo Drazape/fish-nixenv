@@ -5,7 +5,7 @@ description: Generic information on hooks, their implementation, and how they ar
 ---
 
 # Hooks
-Hooks are Fish functions that that may be executed with a trigger (entering, exiting, and changing a Fish plugin repository.)
+Hooks are Fish functions that may be executed with a trigger (entering, exiting, and changing a Fish plugin repository.)
 
 ## Defining data for the shell
 The information needed by these hooks is transfered to the shell with environment variables.  

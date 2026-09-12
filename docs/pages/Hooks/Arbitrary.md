@@ -13,7 +13,7 @@ The lowest level hook with arbitrary power and the most boilerplate.
 
 ## Value
 The value of the `FISH_DIRENV_HOOKS` environment variable is a file path to a Fish script.  
-This Fish script is sourced when we enter a directory, and comes equipped with some optional barebones abstractions that can be used to manage more triggers automatically.
+This Fish script is sourced when we enter a directory, and comes equipped with some optional barebones abstractions which can be used to manage more triggers automatically.
 !!! note "Custom Hook"
     For more advanced use cases, it may even [ignore the opt-in trigger abstraction](#without-abstraction){data-preview} - and turn the script into it's own hook!
 
@@ -48,7 +48,7 @@ This is best suited for:
 - and the only practical one, changes that only need to be triggered when entering the directory.
 
 ### With abstraction
-These are conveniences the hook provides - that enable you to set and check global variables to determine the operation of the trigger.
+These are conveniences the hook provides — that let you set and check global variables to determine the operation of the trigger.
 
 #### Enter
 Mostly the same as the “[Without Abstraction](#without-abstraction)” case, but you need to do some setup for also triggering on Exits.  
