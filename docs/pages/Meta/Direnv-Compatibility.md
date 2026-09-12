@@ -8,7 +8,7 @@ description: Why you need fish-nixenv, and how it extends with Direnv.
 Why you need fish-nixenv, and how it extends with Direnv.
 
 ## Standalone direnv
-Besides the [additional benefits of fish-nixenv over plain direnv](./Benefits.md#original){data-preview}, you *need* fish-nixenv for Fish plugins to edit the internal Fish environment (manual `source`s, functions, variables, abbreviations, completions, bindings, Fish plugin data for the session, …), because direnv alone is incapable to do so.
+Besides the [additional benefits of fish-nixenv over plain direnv](./Benefits.md#original){data-preview}, you *need* fish-nixenv for Fish plugins to edit the internal Fish environment (manual `source` calls, functions, variables, abbreviations, completions, bindings, Fish plugin data for the session, …), because direnv alone is incapable to do so.
 
 The “external environment”—environment variables are the only thing that direnv can modify for a Fish shell session.  
 The modification can either be done using static environment in the shell itself, or dynaimcally by spawning a new Bash shell process to run the `shellHooks` in.

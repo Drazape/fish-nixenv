@@ -17,7 +17,7 @@ While this approach works, it particularly leaves a few inconveniences unaddress
 We need to manually run `nix develop` each time we enter the repository.  
 Direnv resolves this problem by automatically loading the Nix development environment the moment we enter the directory, and unloading it when we leave the directory.
 ### 2. Environment Loss
-Any modifications (manual `source`s, functions, variables, abbreviations, completions, bindings, Fish plugin data for the session, …) we added to the previous session are lost.
+Any modifications (manual `source` calls, functions, variables, abbreviations, completions, bindings, Fish plugin data for the session, …) we added to the previous session are lost.
 These modifications are preserved by Direnv. This is because it only modifies the environment variables of the current shell session, and does not spawn a new shell.
 The preservation of previous shell environment can be valuable when testing a Fish plugin — because these includes all the modifications we made before entering the directory.  
 These modifications could be useful while testing the plugin, and make quitting the directory more convenient — because returning to the previous shell environment would no longer involve exiting the current one.
