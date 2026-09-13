@@ -12,7 +12,7 @@ One can create a Nix development environment for Fish plugins by executing Fish 
 The flag can be used to desired execute shell hooks
 Now, after we are done, we can finally use `nix develop` each time we enter the directory.
 
-While this approach works, it particularly leaves a few inconveniences unaddressed—the conveniences provided by [Direnv][direnv], that are useless for Fish projects without fish-nixenv:
+While this approach works, it particularly leaves a few inconveniences unaddressed—the conveniences provided by [Direnv][direnv] that Fish projects can't benefit from without fish-nixenv:
 ### 1. Manual
 We need to manually run `nix develop` each time we enter the repository.  
 Direnv resolves this problem by automatically loading the Nix development environment the moment we enter the directory, and unloading it when we leave the directory.

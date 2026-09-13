@@ -23,7 +23,7 @@ It is typically defined statically (without `shellHooks`) in the Nix development
 The value needs to be a file path to the Fish script containing the hook; it doesn't matter how you define it.
 !!! tip "Fish plugin flake template"
     The [Fish plugin flake template](./index.md#defining-data-for-the-shell){data-preview} provides a complete example of how to define a Fish plugin Nixpkg, and a *fish-nixenv* development environment for it - in a flake
-2 common ways to do that in Nix is:
+There are 2 common ways to do that in Nix:
 ### External file path
 Simply specify the value to the path of the expected Fish script in the current repository using the [path file type of Nix](https://nix.dev/manual/nix/2.35/language/types.html#type-path "An immutable, finite-length sequence of bytes starting with `/`, representing a POSIX-style, canonical file system path")
 

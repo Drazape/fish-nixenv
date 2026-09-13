@@ -7,11 +7,12 @@ Create Nix developments environments for Fish projects compatible with Direnv
 # The automation included
 Though you can create Fish devshells without direnv (or fish-nixenv) by working around `shellHooks` and executing `fish` with `--init-command`. Then runnning `nix develop` each time we enter the directory.
 
-While this approach works, it particularly leaves a few inconveniences unaddressed—the conveniences provided by [Direnv][direnv], that are useless for Fish projects without fish-nixenv:
+While this approach works, it leaves a few inconveniences unaddressed—the conveniences provided by [Direnv][direnv]:
 1. **Manual**: We need to manually run `nix develop` each time we enter the repository
 2. **Environment Loss**: Any modifications (manual `source` calls, functions, variables, abbreviations, completions, bindings, Fish plugin data for the session, …) we added to the previous session are lost
 3. **Overhead**: Your whole interactive shell would have to re-initialized: reading shell initialization scripts, sourcing lookup functions, Fish plugins
 4. **Overlap**: If you don't use `exec` with `nix develop`, then you'll have another shell beneath your current shell that you'll have to close
+But for Fish projects, Direnv simply doesn't work without this extension—let alone provide any exclusive benefits.
 
 > [!TIP]
 > [Discover packages that are using fish-nixenv](https://github.com/topics/fish-nixenv/ "GitHub topic")
