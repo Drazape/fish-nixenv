@@ -53,7 +53,7 @@ These are conveniences the hook provides — that let you set and check global v
 #### Enter
 Mostly the same as the “[Without Abstraction](#without-abstraction)” case, but you need to do some setup for also triggering on Exits.  
 
-When leaving the Fish project's directory, The hook triggers a function defined while sourcing the script on *Enter*.  
+When leaving the Fish project's directory, the hook triggers a function defined while sourcing the script on *Enter*.  
 The source script is to set a global variable (according to the type of exit) to the function name that is to be called.
 
 #### Exit
