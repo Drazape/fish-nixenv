@@ -38,8 +38,11 @@ For common tasks, there are [universal hooks](../Hooks/Nixpkg.md){data-preview} 
 !!! note "Independent Implementation"
     For various reasons (briefly: readability, maintainability, and extensibility), these abstactions are implemented entirely independently of the hooks:
 
-    - **Hook launching**: By separating the functions triggering on different environment variables, we don't have to manually check for what function is set.
-    - **Unshareable**: The code for each of the function is fairly trivial and unique. Sharing logic only makes it more complicated, unmodular, and less extensible.
-    - **Not Addons**: Due to the nature of the hooks (file sourcing to avoid environment pollution), the specialized abstractions can't simply be hooked onto.
+    Hook launching
+    :   By separating the functions triggering on different environment variables, we don't have to manually check for what function is set.
+    Unshareable
+    :   The code for each of the function is fairly trivial and unique. Sharing logic only makes it more complicated, unmodular, and less extensible.
+    Not Addons
+    :   Due to the nature of the hooks (file sourcing to avoid environment pollution), the specialized abstractions can't simply be hooked onto.
 ### 4. [Uses standard flake](./Direnv-Compatibility.md){data-preview}
 To declare fish-nixenv hooks, you don't have to add any external inputs (or use any custom functions to declare the shell) in order to use fish-nixenv.
