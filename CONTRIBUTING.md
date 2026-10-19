@@ -21,3 +21,5 @@ In contrast to the straight quotation marks used in the Google Style (`"`), we i
 #### Line Breaks
 The Google style prohibits the use of line breaks; consequently, starts of new lines is limited to a new paragraph.  
 In contrast, we extensively use line breaks to make it easier for readers to skip sentences.
+#### Endashes
+Use endashes wherever they seem to be the best choice—don't use hyphens instead.
