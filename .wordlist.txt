@@ -1,0 +1,17 @@
+Direnv
+direnv
+nixenv
+lucide
+codebase
+Zensical
+devshell
+devshells
+shellInit
+indexable
+NixOS
+abstractions
+Nixpkg
+autoloads
+prepending
+attrset
+ons

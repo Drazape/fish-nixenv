@@ -13,7 +13,7 @@ The lowest level hook with arbitrary power and the most boilerplate.
 
 ## Value
 The value of the `FISH_DIRENV_HOOKS` environment variable is a file path to a Fish script.  
-This Fish script is sourced when we enter a directory, and comes equipped with some optional barebones abstractions which can be used to manage more triggers automatically.
+This Fish script is sourced when we enter a directory, and comes equipped with some optional bare bones abstractions which can be used to manage more triggers automatically.
 !!! note "Custom Hook"
     For more advanced use cases, it may even [ignore the opt-in trigger abstraction](#without-abstraction){data-preview} - and turn the script into it's own hook!
 
@@ -31,10 +31,10 @@ Simply specify the value to the path of the expected Fish script in the current 
 You can also define the Fish script path by writing the file in-place with the Nix function [`builtins.toFile`](https://nix.dev/manual/nix/2.34/language/builtins#builtins-toFile "Store a string in a file in the Nix store - and return its path").
 
 ## Usage
-The following sections show how to use the hook according to your usecase.  
+The following sections show how to use the hook according to your use case.  
 Each use only modifies how the Fish script is written.
 ### Without Abstraction
-The abstractions the hook provides are opt-in. You can simply ignore them in case they don't meet your usecase.
+The abstractions the hook provides are opt-in. You can simply ignore them in case they don't meet your use case.
 
 In this case, the hook is simply a Fish script that is sourced when we enter a directory. You can do whatever you want in this script.
 

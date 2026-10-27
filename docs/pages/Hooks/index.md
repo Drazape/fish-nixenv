@@ -8,7 +8,7 @@ description: Generic information on hooks, their implementation, and how they ar
 Hooks are Fish functions that may be executed with a trigger (entering, exiting, and changing a Fish plugin repository.)
 
 ## Defining data for the shell
-The information needed by these hooks is transfered to the shell with environment variables.  
+The information needed by these hooks is transferred to the shell with environment variables.  
 Each hook asks only for a single environment variable. The environment variable might contain different sort of data depending on the hook the variable is accepted by.
 
 To define a hook, make your development shell derivation include the environment variable wanted by the hook, and set it to the value you want to pass to the hook. The hook will then be able to read the value of the environment variable and use it as needed.

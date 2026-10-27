@@ -1,7 +1,7 @@
 ---
 comments: true
 icon: lucide/snowflake
-description: A high-level hook for a Fish plugin env from a Nixpkg
+description: A high-level hook for a Fish plugin environment from a Nixpkg
 ---
 
 # Nixpkg

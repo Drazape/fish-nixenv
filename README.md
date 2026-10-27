@@ -5,7 +5,7 @@ Create Nix developments environments for Fish projects compatible with Direnv
 > Everything below (and exclusive information such as usage and implementation) is covered extensively in the main documentation.
 
 # The automation included
-Though you can create Fish devshells without direnv (or fish-nixenv) by working around `shellHooks` and executing `fish` with `--init-command`. Then runnning `nix develop` each time we enter the directory.
+Though you can create Fish devshells without direnv (or fish-nixenv) by working around `shellHooks` and executing `fish` with `--init-command`. Then running `nix develop` each time we enter the directory.
 
 While this approach works, it leaves a few inconveniences unaddressed—the conveniences provided by [Direnv][direnv]:
 1. **Manual**: We need to manually run `nix develop` each time we enter the repository
@@ -19,7 +19,7 @@ But for Fish projects, Direnv simply doesn't work without this extension—let a
 
 # [Direnv][direnv] compatibility
 If these issue are already solved by [Direnv][direnv], why do we need this project?  
-For Fish projects, we need to make the included functions, completions, and shellInit scripts available to the current shell session, letting us use the plugin version in the current directory—the most common, thus abstracted use case (though abritrary hooks can be defined to do much more).
+For Fish projects, we need to make the included functions, completions, and shellInit scripts available to the current shell session, letting us use the plugin version in the current directory—the most common, thus abstracted use case (though arbitrary hooks can be defined to do much more).
 `direnv` alone is incapable of this — because it only sets environment variables, runs the `shellHooks` in a separate Bash shell, and does not provide a way to modify the internal Fish environment.
 
 With fish-nixenv, we can use `direnv` to automatically load the Nix development environment for Fish projects, while also ensuring that all Fish functions and completions are indexable, and shell initialization scripts sourced, by the current Fish session.

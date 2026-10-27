@@ -36,7 +36,7 @@ You can run shell hooks for both entering and exiting the directory.
 ### 3. Abstraction
 For common tasks, there are [universal hooks](../Hooks/Nixpkg.md){data-preview} which you can use with different environment variables that do all the heavy lifting for you, so you don't have to write your own shell hooks.
 !!! note "Independent Implementation"
-    For various reasons (briefly: readability, maintainability, and extensibility), these abstactions are implemented entirely independently of the hooks:
+    For various reasons (briefly: readability, maintainability, and extensibility), these abstractions are implemented entirely independently of the hooks:
 
     Hook launching
     :   By separating the functions triggering on different environment variables, we don't have to manually check for what function is set.
