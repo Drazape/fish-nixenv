@@ -9,7 +9,7 @@
 	outputs = inputs@{ flake-parts, ... }:
 		flake-parts.lib.mkFlake { inherit inputs; } {
 			systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
-			perSystem = { self', pkgs, system, ... }: {
+			perSystem = { self', pkgs, system, lib, ... }: {
 				packages = let pkgName = "fish-nixenv"; in {
 					default = self'.packages.${pkgName};
 					${pkgName} = pkgs.stdenvNoCC.mkDerivation {
@@ -33,6 +33,13 @@
 							install-components functions{,}
 							install-components conf{.d,}
 						'';
+
+						meta = {
+							description = "Add Fish plugin development support to Direnv";
+							homepage = "https://github.com/Drazape/fish-nixenv";
+							license = lib.licenses.mit;
+							platforms = lib.platforms.linux;
+						};
 					};
 				};
 			};
