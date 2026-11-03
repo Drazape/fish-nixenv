@@ -4,46 +4,10 @@ on:
   push:
   pull_request:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
-  build:
-    name: Build Documentation
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-
-      - uses: rojopolis/spellcheck-github-actions@v0
-        with:
-          output_file: spellcheck-output.txt
-          task_name: Markdown
-      - uses: actions/upload-artifact@v7
-        if: '!cancelled()'
-        with:
-          path: spellcheck-output.txt
-          archive: false
-
-      - uses: actions/configure-pages@v6
-      - uses: actions/setup-python@v7
-        with:
-          python-version: 3.x
-      - run: pip install zensical
-      - run: zensical build --strict --clean --config-file=docs/zensical.toml
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: docs/site
-
-  deploy:
-    name: Deploy Documentation
-    needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/deploy-pages@v5
-        id: deployment
+  docs:
+    uses: Drazape/zensical-action/.github/workflows/docs.yaml@main
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
