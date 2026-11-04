@@ -4,7 +4,6 @@ nixenv
 lucide
 codebase
 Zensical
-devshell
 devshells
 shellInit
 indexable
