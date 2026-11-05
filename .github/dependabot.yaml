@@ -2,6 +2,7 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
+    target-branch: "develop"
     directory: "/" # Look for `.github/workflows` in the `root` directory
     schedule:
       interval: "monthly"
