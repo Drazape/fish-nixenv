@@ -10,7 +10,6 @@ copyright = """
 """
 docs_dir = "./pages/"
 site_dir = "./site/"
-custom_dir = "./overrides/"
 
 [project.extra]
 generator = false
@@ -45,6 +44,7 @@ description = """
 
 # Defaults
 [project.theme]
+custom_dir = "./overrides/"
 language = "en"
 features = [
     "announce.dismiss",
